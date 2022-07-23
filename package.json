@@ -1,0 +1,24 @@
+{
+  "name": "7_7_rawReserve",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "nvm": "echo $npm_package_engines_node | cut -d'=' -f2",
+    "postinstall": "yarn everdev-setup",
+    "local-reset": "everdev se reset",
+    "everdev-setup": "everdev sol set --compiler 0.61.2 --linker 0.15.47",
+    "contract-build": "locklift build --config locklift.config.js",
+    "demo": "locklift run --config locklift.config.js --network local --script scripts/1-deploy-sample.js",
+    "test": "yarn local-reset && locklift test --config locklift.config.js --network local"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "everdev": "^1.2.1",
+    "locklift": "broxus/ton-locklift",
+    "ton-contracts": "broxus/ton-contracts"
+  }
+}
